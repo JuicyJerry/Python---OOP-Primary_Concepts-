@@ -1,18 +1,20 @@
 # 원통(Cylinder)클래스
 from math import pi
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 # Abstract Base Class
 # 추상 메소드가 적어도 1개 이상이 있어야 추상 클래스라고 할 수 있다.
 
 class Shape(ABC):
     """도형 클래스"""
-    @abstractclassmethod
+    @abstractmethod
+    #@abstractclassmethod
     # 추상 메소드: 자식 클래스 오버라이딩 필요 / 인스턴스 생성 x
     def area(self):
         """도형의 넓이를 리턴한다. 자식 클래스가 오버라이딩할 것"""
         pass
 
-    @abstractclassmethod
+    @abstractmethod
+    #@abstractclassmethod
     # 추상 메소드: 자식 클래스 오버라이딩 필요 / 인스턴스 생성 x
     def perimeter(self):
         """도형의 둘레를 리턴한다. 자사 클래스가 오버라이딩할 것"""
@@ -57,6 +59,18 @@ class Circle(Shape):
         return "반지름 {}인 원".format(self.radius)
 
 
+class Cylinder:
+    """원통 클래스"""
+
+    def __init__(self, radius, height):
+        self.radius = radius
+        self.height = height
+
+    def __str__(self):
+        """원통의 정보를 문자열로 리턴하는 메소드"""
+        return "밑면 반지름 {}, 높이 {}인 원기둥".format(self.radius, self.height)
+
+
 class EquilateralTriangle(Shape):
     """정삼각형 클래스"""
     def __init__(self, side):
@@ -90,20 +104,16 @@ class Paint:
         """그림판에 있는 모든 도형의 둘레의 합을 구한다"""
         return sum([shape.perimeter() for shape in self.shapes])
 
-
-class Cylinder:
-    """원통 클래스"""
-
-    def __init__(self, radius, height):
-        self.radius = radius
-        self.height = height
-
     def __str__(self):
-        """원통의 정보를 문자열로 리턴하는 메소드"""
-        return "밑면 반지름 {}, 높이 {}인 원기둥".format(self.radius, self.height)
+        """그림판에 있는 각 도형들의 정보를 출력한다"""
+        res_str = "그림판 안에 있는 도형들:\n\n"
+        for shape in self.shapes:
+            res_str += str(shape) + "\n"
+            return res_str
+
 
 shape = Shape()
-# 추상 클래스는 인스턴스를 만들지 못한다.
+# 추상 클래스는 인스턴스를 만들지 못한다. -> error 발생
 # 추상 클래스는 여러 클래스의 공통점을 담아두고 다른 클래스들이 상속받는 부모클래스가 될
 # 목적으로 존재한다. 앞으로 추상클래스가 아닌 클래스는 일반클래스라고 부를 것이다.
 
