@@ -29,7 +29,7 @@ class Paint:
 
     def add_shape(self, shape):
         """도형 인스턴스만 그림판에 추가한다"""
-        if isinstance(shape, Shape):
+        if isinstance(shape, Shape):    #LNYL(Look Before Your Leap) <> EAFP(Easier to Ask for Forgiveness than Pemission)
             self.shapes.append(shape)
         else:
             print("도형 클래스가 아닌 인스턴스는 추가할 수 없습니다!")
