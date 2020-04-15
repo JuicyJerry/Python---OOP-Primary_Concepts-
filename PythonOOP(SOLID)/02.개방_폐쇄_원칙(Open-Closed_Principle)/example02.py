@@ -54,7 +54,7 @@ samsung_keyboard = SamsungKeyboard()
 
 keyboard_manager.connect_to_keyboard(samsung_keyboard)
 
-samsung_keyboard.save_user_input("안녕하세요")
+samsung_keyboard.save_user_input("안녕하세요!")
 
 print(keyboard_manager.get_keyboard_input())
 

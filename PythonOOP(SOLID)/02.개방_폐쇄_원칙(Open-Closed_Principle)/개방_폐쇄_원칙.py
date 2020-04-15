@@ -25,7 +25,7 @@ from abc import ABC, abstractmethod
 class Keyboard(ABC):
     """키보드 (추상)클래스"""
     def save_input(self, content: str) -> None:
-        """키보드 인풋 저장 메소드"""
+        """키보드 인풋 저장 메소드!"""
         pass
 
     @abstractmethod
