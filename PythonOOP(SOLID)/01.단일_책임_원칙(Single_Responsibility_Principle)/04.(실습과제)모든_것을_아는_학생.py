@@ -19,43 +19,52 @@ class Student:
 
 
 class NameBook:
+    def __init__(self, name):
+        self.name = name
+
     def change_student_info(self, new_name):
         """학생 기본 정보 수정 메소드"""
         self.new_name = new_name
 
     def print_report_card(self):
         """학생 성적표 출력 메소드"""
-        print("코드잇 대학 성적표\n\n학생 이름:{}\n".format(self.name))
+        print("코드잇 대학 성적표\n\n학생 이름:{}".format(self.name))
+
 
 class IdentificationCard:
+    def __init__(self, id):
+        self.id = id
+
     def change_student_info(self, new_id):
         """학생 기본 정보 수정 메소드"""
         self.new_id = new_id
 
     def print_report_card(self):
         """학생 성적표 출력 메소드"""
-        print("학생 번호:{}\n".format(self.name_book))
-
+        print("학생 번호:{}".format(self.new_id))
 
 
 class MajorList:
+    def __init__(self, major):
+        self.major = major
+
     def change_student_info(self, new_major):
         """학생 기본 정보 수정 메소드"""
-        self.new_major = new_major
+        self.major = new_major
 
     def print_report_card(self):
         """학생 성적표 출력 메소드"""
-        print("소속 학과:{}\n".format(self.major_list))
+        print("소속 학과:{}".format(self.major))
 
 
 class GradeManager:
-    def __init__(self, new_grade):
-        self.grades = new_grade
+    def __init__(self, grade):
+        self.grades = grade
 
-    def add_grade(self, new_grade):
+    def add_grade(self, grades):
         """학점 추가 메소드"""
-        if 0 <= new_grade <= 4.3:
-            self.grades.append(new_grade)
+        if 0 <= grades <= 4.3:
+            self.grades.append(grades)
         else:
             print("수업 학점은 0과 4.3 사이여야 합니다!")
 
@@ -66,7 +75,6 @@ class GradeManager:
     def print_report_card(self):
         """학생 성적표 출력 메소드"""
         print("평균 학점:{}".format(self.get_average_gpa()))
-
 
 
 # 학생 인스턴스 정의
@@ -82,4 +90,7 @@ younghoon.grades.add_grade(3.67)
 younghoon.grades.add_grade(4.3)
 
 # 학생 성적표
+younghoon.name_book.print_report_card()
+younghoon.id_card.print_report_card()
+younghoon.major_list.print_report_card()
 younghoon.grades.print_report_card()
