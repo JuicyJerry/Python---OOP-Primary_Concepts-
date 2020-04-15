@@ -8,7 +8,7 @@ class Messages(ABC):
 
 
 class MessageNotificationManager:
-    """메시지 알림 관리 클래스"""
+    """메시지 알림 관리 클래스!"""
     def __init__(self):
         self.message_notifications = []
 
