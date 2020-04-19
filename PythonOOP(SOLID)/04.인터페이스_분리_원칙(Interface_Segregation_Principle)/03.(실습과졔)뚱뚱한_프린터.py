@@ -8,7 +8,14 @@ class IPrinter(ABC):
         pass
 
 
-class SamsungPrinter(IPrinter):
+class IScanner(ABC):
+    @abstractmethod
+    def scan(self, content:str) -> bool:
+        """문서 스캔 메소드"""
+        pass
+
+
+class SamsungPrinter(IPrinter, IScanner):
     def __init__(self, has_ink, has_paper, is_connected):
         self.has_ink = has_ink
         self.has_paper = has_paper
@@ -43,7 +50,6 @@ class LGPrinter(IPrinter):
         return False
 
 
-
 samsung_printer = SamsungPrinter(True, True, True)
 lg_printer = LGPrinter(True, True, True)
 
@@ -51,10 +57,9 @@ samsung_printer.print_file("4월 보고서.docx")
 lg_printer.print_file("4월 보고서.docx")
 
 samsung_printer.scan("스캔 테스트 문서")
-#lg_printer.scan("스캔 테스트 문서")
+# lg_printer.scan("스캔 테스트 문서")
 
 print(SamsungPrinter.mro())
 print(LGPrinter.mro())
-
 
 
